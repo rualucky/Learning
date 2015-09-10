@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+    <!-- 
+    Smart developers always View Source. 
+    
+    This application was built using Adobe Flex, an open source framework
+    for building rich Internet applications that get delivered via the
+    Flash Player or to desktops via Adobe AIR. 
+    
+    Learn more about Flex at http://flex.org 
+    // -->
+    <head>
+        <title>${title}</title>
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
+             the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
+             the percentage of the height of its parent container, which has to be set explicitly.  Fix for
+             Firefox 3.6 focus border issues.  Initially, don't display flashContent div so it won't show 
+             if JavaScript disabled.
+        -->
+        <style type="text/css" media="screen"> 
+            html, body  { height:100%; }
+            body { margin:0; padding:0; overflow:auto; text-align:center; 
+                   background-color: ${bgcolor}; }   
+            object:focus { outline:none; }
+            #flashContent { display:none; }
+        </style>
+        <style type="text/css" media="screen">
+        a:hover {
+        text-decoration: underline;
+        color:red;
+        }
+        </style>
+         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+        <!-- boostrap 3 -->
+<!-- Latest compiled and minified CSS -->
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<!--
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
+        <!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+        <!-- BEGIN Browser History required section ${useBrowserHistory}>
+        <link rel="stylesheet" type="text/css" href="history/history.css" />
+        <script type="text/javascript" src="history/history.js"></script>
+        <!${useBrowserHistory} END Browser History required section -->  
+            
+        <script type="text/javascript" src="swfobject.js"></script>
+
+        <script type="text/javascript">
+            var MeCloudVideoPlayer = {
+                initFlash: function(session){
+                    console.log("Flash init complete " + session);
+                    
+                    var e = document.getElementById('VideoPlayer_'+session);
+
+                    if (e && e.importData) {
+                        if (session == '111')
+                        {
+                            e.importData({
+                            	"logoMain":"file:///D:/computer.png",
+                               	//"autoplay":true,
+                                "vid":"ZEh89uu6Bn",
+                                "analyticsUrl":"http://analytics.cloud.meme.vn:8888",
+                               
+                                "title": "Bóng đá ... asdlfjaslfkjsaf asdfjasfjasdf sadf asdf asdfsad fasd fasd fasd fasd fasdf asdf asdf asdf asdf asd fasd fasd fasd fasd fasd fas dfa sdf sdfs dfasd fas f",
+                                "thumbnail": "http://imgs.meme.vn/video/clip/2015/01/30/16/26/1b37fd6036b50ae4c0ea214af3e067d3MEME1422610427.jpg",
+                                "video": [
+                                
+                                    {
+                                        "quality": "360p",
+                                       // "url":"http://stream.cloud.meme.vn/clip/2015/7/15/9/18/6057f2d173025d49ddaa4753c1023bd3_480.mp4?e=1440061495&t=8396bcbee61b469aec3c45854f4cab17"
+                                       "url":"http://localhost/video/video1.mp4"
+                                    }
+                                    ,
+                                    {
+                                        "quality": "480p",
+                                        //"url": "http://localhost/video/video3.mp4"
+                                        //"url":"http://cdn.mecloud.vn/clip/2015/8/3/21/41/e1b46a9ecf83dbb213dc7233de163cfc_480.mp4?e=1438678925&s=gge0tuV4QGaVrg9Gno8Z83jhhFQ="
+                                        
+                                    }, {
+                                        "quality": "720p", 
+                                        //"url": "http://localhost/video/video4720.mp4"
+                                        "url":"http://cdn.mecloud.vn/clip/2015/8/4/1/6/2b4a9d312becc9fb946eeb96d3721cbd_720.mp4?e=1438755820&s=WmNy7C9jWlOKUMb0zwZK0qzkb-Y="
+                                    }, 
+                                    {
+                                        "quality": "1080p", 
+                                        "url": "http://localhost/video/video41080.mp4"
+                                    }
+                                ],
+                                
+                                   "ad": {
+       
+       "pre":{
+"id":433,
+"adtag":[
+{
+//"adtagUrl":"http://googleads.g.doubleclick.net/pagead/ads?ad_type\u003dvideo_image_flash\u0026client\u003dca-video-pub-7266710804606728\u0026description_url\u003dhttp%3A%2F%2Fdienchan.freevnn.com%2F%3Fp%3D469\u0026videoad_start_delay\u003d0\u0026hl\u003dvi\u0026max_ad_duration\u003d15000",
+"adtagUrl":"http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+"skippable":false,
+"skipTime":0,
+"adType":"VAST",
+"adtagId":236
+},
+
+],
+"displayRule":"FULL_COUNT",
+"selectRule":"RANDOM",
+"maxDisplay":3
+        },
+        "mid": [{
+                "adtag": [{
+                      //"adtagUrl":"https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]",
+                      "adtagUrl":"http://demo.tremorvideo.com/proddev/vast/vast_wrapper_nonlinear_1.xml",
+                        "skippable": false,
+                        "skipTime": 0,
+                        "adType": "IMA",
+                        "adtagId": 2
+                    }
+                  /* , 
+                    {
+                        //"adtagUrl": "http://cdn-01.yumenetworks.com/ym/72K6cH27X672/3560/dPyQHeey/MemeVN_VPAID_2193gDhFcRPs.xml",
+                        "adtagUrl":"http://demo.tremorvideo.com/proddev/vast/vast_wrapper_nonlinear_1.xml",
+                        "skippable": false,
+                        "skipTime": 0,
+                        "adType": "IMA",
+                        "adtagId": 14
+                    }
+                    , 
+                    {
+                        //"adtagUrl": "http://cdn-01.yumenetworks.com/ym/72K6cH27X672/3560/dPyQHeey/MemeVN_VPAID_2193gDhFcRPs.xml",
+                        "adtagUrl":"http://demo.tremorvideo.com/proddev/vast/vast_wrapper_nonlinear_1.xml",
+                        "skippable": false,
+                        "skipTime": 0,
+                        "adType": "IMA",
+                        "adtagId": 19
+                    }
+                    , 
+                    {
+                        //"adtagUrl": "http://cdn-01.yumenetworks.com/ym/72K6cH27X672/3560/dPyQHeey/MemeVN_VPAID_2193gDhFcRPs.xml",
+                        "adtagUrl":"http://demo.tremorvideo.com/proddev/vast/vast_wrapper_nonlinear_1.xml",
+                        "skippable": false,
+                        "skipTime": 0,
+                        "adType": "IMA",
+                        "adtagId": 22
+                    }*/
+                    ],
+                "displayRule": "FULL_COUNT",
+                "selectRule": "RANDOM",
+                "interval": 35,
+                "delay": 10,
+                "maxDisplay": 4
+            }],
+            
+        "post": {
+            "adtag": [{
+                    //"adtagUrl": "http://player.tuyenbui.com/vast/vast.xml",
+                    "adtagUrl":"http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    "skippable": false,
+                    "skipTime": 0,
+                    "adType": "VAST",
+                    "adtagId": 3
+                }, {
+                    "adtagUrl": "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    "skippable": false,
+                    "skipTime": 0,
+                    "adType": "VAST",
+                    "adtagId": 5
+                }, {
+                    "adtagUrl": "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    "skippable": false,
+                    "skipTime": 0,
+                    "adType": "VAST",
+                    "adtagId": 10
+                }],
+            "displayRule": "NOT_DUPLICATE",
+            "selectRule": "LINEAR",
+            "maxDisplay": 1
+        },
+        "pausead": {
+            "adtag": [{
+                    "url": "http://vnexpress.net/",
+                    "type": "jpg",
+                    "fileLink": "http://s.f29.img.vnecdn.net/2015/07/23/23-7-Anh-8-No-min-pha-ham-vang-1437638852_180x108.jpg",
+                    "adType": "PAUSE",
+                    "adtagId": 22
+                },
+                {
+                "url": "http://vnexpress.net/",
+                    "type": "jpg",
+                    "fileLink": "http://s.f29.img.vnecdn.net/2015/07/23/23-7-Anh-8-No-min-pha-ham-vang-1437638852_180x108.jpg",
+                    "adType": "PAUSE",
+                    "adtagId": 19
+                },
+                {
+                "url": "http://vnexpress.net/",
+                    "type": "jpg",
+                    "fileLink": "http://s.f29.img.vnecdn.net/2015/07/23/23-7-Anh-8-No-min-pha-ham-vang-1437638852_180x108.jpg",
+                    "adType": "PAUSE",
+                    "adtagId": 11
+                },
+                {
+                "url": "http://tinhte.vn/threads/trinh-dien-cong-nghe-moi-tren-chip-mediatek-helio-man-hinh-120hz-camera-do-nhip-tim-lay-net-0-2s.2495978/",
+                    "type": "jpg",
+                    "fileLink": "http://photo.tinhte.vn/store/2015/08/3111968_tinhte.vn-mediatek-helio-5.jpg",
+                    "adType": "PAUSE",
+                    "adtagId": 7
+                },
+                {
+                "url": "http://tinhte.vn/threads/trinh-dien-cong-nghe-moi-tren-chip-mediatek-helio-man-hinh-120hz-camera-do-nhip-tim-lay-net-0-2s.2495978/",
+                    "type": "jpg",
+                    "fileLink": "http://photo.tinhte.vn/store/2015/08/3111968_tinhte.vn-mediatek-helio-5.jpg",
+                    "adType": "PAUSE",
+                    "adtagId": 55
+                },
+                {
+                "url": "http://tinhte.vn/threads/trinh-dien-cong-nghe-moi-tren-chip-mediatek-helio-man-hinh-120hz-camera-do-nhip-tim-lay-net-0-2s.2495978/",
+                    "type": "jpg",
+                    "fileLink": "http://photo.tinhte.vn/store/2015/08/3111968_tinhte.vn-mediatek-helio-5.jpg",
+                    "adType": "PAUSE",
+                    "adtagId": 55
+                }             
+                ],
+            "displayRule": "NOT_DUPLICATE",
+            "selectRule": "RANDOM"
+        }
+    },
+                            });
+                        }  
+                        else if (session == '222')
+                        {
+                            e.importData({
+                                "vid": "vid2",
+                                "title": "See you again",
+                                "thumbnail": "http://imgs.meme.vn/video/clip/2015/01/30/16/26/1b37fd6036b50ae4c0ea214af3e067d3MEME1422610427.jpg",
+                                "video": [
+                                    {
+                                        "quality": "360p",
+                                        "url":"http://localhost/video/video1.mp4"
+                                        //"url": "http://stream.cloud.meme.vn/clip/2015/6/22/16/25/1ee7db05ac6a1481cb87e3f2f6136a23_360.mp4?e=1435236498&s=zydEwBeNcUhIsmv8vGwRn9TlZFw="
+                                        //"url":"http://stream.cloud.meme.vn/clip/2015/7/3/13/55/6e931f3f269fea3671f173f452d3df12_360.mp4?e=1435924963&s=6StuIHWf1I4lWPQ_tTtDAkHxCYs="
+                                        //"url":"http://www.streambox.fr/playlists/test_001/stream.m3u8"
+                                        //"url":"http://cdnvtn4.mecloud.vn/ksgbwtr/_definst_/mp4:ksgbwtr/clip/2015/7/13/15/50/3a43a81816302d88f0e5701524bb18ea_360.mp4/playlist.m3u8?e=1437073948&t=88cbe947cc97662c99f10346e04ac2ef"
+                                        //"url":"http://184.72.239.149/vod/smil:BigBuckBunny.smil/playlist.m3u8"
+                                        //"url":"http://123.30.135.217/video/phim/index.m3u8"
+
+                                    } ,
+                                    {
+                                        "quality": "480p",
+                                       // "url": "http://stream.cloud.meme.vn/clip/2015/6/22/16/25/1ee7db05ac6a1481cb87e3f2f6136a23_480.mp4?e=1435236498&s=8dWGLSoMACO3edQavqv82QH9SkI="
+                                       // "url":"http://stream.cloud.meme.vn/clip/2015/7/3/13/55/6e931f3f269fea3671f173f452d3df12_360.mp4?e=1435924963&s=6StuIHWf1I4lWPQ_tTtDAkHxCYs="
+                                       "url":"http://cdnvtn4.mecloud.vn/ksgbwtr/_definst_/mp4:ksgbwtr/clip/2015/7/13/15/50/3a43a81816302d88f0e5701524bb18ea_480.mp4/playlist.m3u8?e=1437073948&t=88cbe947cc97662c99f10346e04ac2ef"
+                                    } ,
+                                     {
+                                       "quality": "720p",
+                                       "url":"http://cdnvtn4.mecloud.vn/ksgbwtr/_definst_/mp4:ksgbwtr/clip/2015/7/13/15/50/3a43a81816302d88f0e5701524bb18ea_720.mp4/playlist.m3u8?e=1437073948&t=88cbe947cc97662c99f10346e04ac2ef"
+                                    } ,
+                                    {
+                                       "quality": "1080p",
+                                       "url":"http://cdnvtn4.mecloud.vn/ksgbwtr/_definst_/mp4:ksgbwtr/clip/2015/7/13/15/50/3a43a81816302d88f0e5701524bb18ea_1080.mp4/playlist.m3u8?e=1437073948&t=88cbe947cc97662c99f10346e04ac2ef"
+                                    }                                  
+                                    
+                                ],
+                                "ad":{
+                                    "pre":{
+                                        "index":{
+                                            "type":"vast",
+                                            "adtag":"http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]"
+                                            //"adtag":"https://ima3vpaid.appspot.com/?adTagUrl=https%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fad_type%3Dskippablevideo%26client%3Dca-video-pub-7266710804606728%26description_url%3Dhttp%253A%252F%252Fmecloud.vn%26videoad_start_delay%3D0%26hl%3Den"
+                                            //"adtag" : "https://servedbyadbutler.com/vast.spark?setID=1324&ID=166584&pid=18874"
+                                            //"adtag":"http://cdn-01.yumenetworks.com/ym/72K6cH27X672/3560/dPyQHeey/MemeVN_VPAID_2193gDhFcRPs.xml"
+                                          	//"adtag":"https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]"
+                                          
+                                        },
+                                        "replace":[{
+                                        	"type":"ima",
+                                        	"adtag" : "https://googleads.g.doubleclick.net/pagead/ads?client=ca-video-pub-3588767303886532&slotname=1659698366&ad_type=video_text_image_flash&description_url=http%3A%2F%2Ftinmoi.vn&max_ad_duration=30000&videoad_start_delay=0"
+                                        },                                        
+                                        {
+                                        	"type":"ima",
+                                        	"adtag" : "https://11pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]"
+                                        },
+                                        {
+                                        	"type":"ima",
+                                        	"adtag" : "https://11pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]"
+                                        },
+                                        {
+                                        	"type":"ima",
+                                        	"adtag" : "https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]"
+                                        }
+                                        ]
+                                    },
+                                    "mid":{
+                                        "index":{
+                                            "type":"vast",
+                                            //"adtag":"https://ima3vpaid.appspot.com/?adTagUrl=https%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fad_type%3Dskippablevideo%26client%3Dca-video-pub-7266710804606728%26description_url%3Dhttp%253A%252F%252Fmecloud.vn%26videoad_start_delay%3D0%26hl%3Den"
+                                           //"adtag" : "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]"
+                                           //"adtag":"http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]"
+                                           "adtag":"https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]"
+                                           //"adtag":"http://www.meme.vn/player/overlay_vast.xml"
+                                           //"adtag":"http://googleads.g.doubleclick.net/pagead/ads?ad_type=text_image_flash&adk=2604851684&adsafe=high&channel=&client=ca-video-pub-7266710804606728&correlator=1436753766155&dt=1436753787697&ea=0&flash=18.0.0.203&frm=0&ged=ta1_ve3_pt445.443.u_td445_ed1c1m363_ed2c2m783_tt23_pd23_bs10_es1_tv1_is0_er159.40.459.520_sv2_sp1_vi0.0.650.717_vp100_ct1_vb1_vl1_vr1_ts7_eb24171&hl=vi&image_size=480x70%2C468x60%2C450x50&num_ads=3&osd=6&output=xml_vast3&ref=http%3A%2F%2Flogin.cloud.meme.vn%2F%3Furl%3Dhttp%253A%252F%252Fcloud.meme.vn%252Fvideo%252Fme&sdkv=3.201.0&sdr=1&sz=480x180&t_pyv=allow&u_ah=728&u_asa=1&u_aw=1366&u_cd=24&u_h=768&u_his=6&u_java=true&u_nmime=8&u_nplug=6&u_tz=420&u_w=1366&unviewed_position_start=1&url=http%3A%2F%2Fcloud.meme.vn%2Fvideo%2Fview%3Fid%3DBJBKDWZYnA&video_product_type=0&video_url_to_fetch=http%3A%2F%2Fcloud.meme.vn%2Fvideo%2Fview%3Fid%3DBJBKDWZYnA&videoad_start_delay=1"
+                                           //"adtag":"http://ima3vpaid.appspot.com/?adTagUrl=http%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fad_type%3Dtext_image_flash%26client%3Dca-video-pub-7266710804606728%26description_url%3Dhttp%253A%252F%252Ftinmoi.vn%26videoad_start_delay%3D0%26hl%3Den%26max_ad_duration%3D30000"
+                                           //"adtag":"http://ima3vpaid.appspot.com/?adTagUrl=http%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fad_type%3Dskippablevideo%26client%3Dca-video-pub-7266710804606728%26description_url%3Dhttp%253A%252F%252Fmecloud.vn%26videoad_start_delay%3D0%26hl%3Den"
+                                        }
+                                    },
+                                    "post":{
+                                        "index":{
+                                            "type":"vast",
+                                            //"adtag":"https://ima3vpaid.appspot.com/?adTagUrl=https%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fads%3Fad_type%3Dskippablevideo%26client%3Dca-video-pub-7266710804606728%26description_url%3Dhttp%253A%252F%252Fmecloud.vn%26videoad_start_delay%3D0%26hl%3Den"
+                                            "adtag" : "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]"
+                                           //"adtag":"https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]"
+                                        }
+                                    }
+
+                                }
+                            });
+                        }   
+                         else if (session == '333')
+                        {
+                            e.importData({
+                                "vid": "vid3",
+                                "title": "blablalala",
+                                "thumbnail": "http://img.cloud.meme.vn/thumb/clip/2015/5/18/10/57/ed40ac71c200f6af9664cd31014d2e06_1.jpg",
+                                "video": [
+                                    {
+                               
+                                    //"url":"http://www.streambox.fr/playlists/test_001/stream.m3u8"                                       
+                                    "url":"http://123.30.135.217/video/phim/index.m3u8"
+                                        //"url":"http://stream.cloud.meme.vn/clip/2015/6/19/11/0/e4a1a2e9ba43c125bbd22de433140f75_360.mp4?s=8aYHoQd4ZmNhI9Mdv1RWwYZABvM=&e=1434722718"
+                                        //"url": "http://cdn.mecloud.vn/clip/2015/5/7/4/2/777068c2283c1bcf4ae9f9849f8ea104_360.mp4?e=1434459352&s=Z1RTGTpw3YQJSwUQhSmcTcOrSPQ="
+                                    }/*
+                                    ,
+                                    {
+                                        "quality": "480p",
+                                        "url": "http://cdn.mecloud.vn/clip/2015/6/16/14/27/6a1fecdd177bec49a18240c141824ca4_360.mp4?e=1434461276&s=MvqPqrv9U0CtVrlLTEKtcMPvqMU="
+                                    }, {
+                                        "quality": "720p", 
+                                        "url": "http://stream2.memeclip.com/clip/2015/01/30/16/26/1b37fd6036b50ae4c0ea214af3e067d3_720.mp4?st=ntEWxOeQXlxOaKI6twL9SA&e=1423669524257"
+                                    }*/
+                                ],
+                                "ad":{
+                                    "pre":{
+                                        "index":{
+                                            "type":"vast",                                            
+                                            //"adtag" : "http://googleads.g.doubleclick.net/pagead/ads?ad_type=text_image_flash&client=ca-video-pub-7266710804606728&description_url=&hl=vi&max_ad_duration=40000&overlay=1"
+                                            "adtag" : "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]"
+                                            
+                                        }
+                                    },
+                                    "post":{
+                                        "index":{
+                                            "type":"vast",
+                                            
+                                            //"adtag" : "http://googleads.g.doubleclick.net/pagead/ads?ad_type=text_image_flash&client=ca-video-pub-7266710804606728&description_url=&hl=vi&max_ad_duration=40000&overlay=1"
+                                            "adtag" : "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]"
+                                            
+                                        }
+                                    }
+                                }
+                            });
+                        }                     
+                    }
+                }
+            }        
+        
+            // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+            var swfVersionStr = "${version_major}.${version_minor}.${version_revision}";
+            // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+            var xiSwfUrlStr = "${expressInstallSwf}";
+            var flashvars = {
+                session: "111"
+            };
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "${bgcolor}";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "VideoPlayer_111";
+            attributes.name = "${application}";
+            attributes.align = "middle";
+            
+            swfobject.embedSWF(
+                "${swf}.swf", "flashContent", 
+                "560", "315", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+
+         </script>
+    </head>
+
+    <body>
+        <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+             JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+             when JavaScript is disabled.
+        -->
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="flashContent" style="width:640px;height:350px;">
+            <p>
+                To view this page ensure that Adobe Flash Player version 
+                ${version_major}.${version_minor}.${version_revision} or greater is installed. 
+            </p>
+            <script type="text/javascript"> 
+                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+            </script> 
+        </div>
+                </div>
+                <div class="col-md-4">
+                    <script type="text/javascript">                    
+            var flashvars = {
+                session: "222"
+            };
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "${bgcolor}";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "VideoPlayer_222";
+            attributes.name = "${application}";
+            attributes.align = "middle";
+            
+            swfobject.embedSWF(
+                "${swf}.swf", "flashContent2", 
+                "640", "360", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent2", "display:block;text-align:left;");
+                    </script>
+                   
+                     <div id="flashContent2" style="width:640px;height:350px;">
+            <p>
+                To view this page ensure that Adobe Flash Player version 
+                ${version_major}.${version_minor}.${version_revision} or greater is installed. 
+            </p>
+            <script type="text/javascript"> 
+                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+            </script> 
+        </div>
+        
+                </div>
+                <div class="col-md-4">
+
+                    <script type="text/javascript">
+                         var flashvars = {
+                session: "333"
+            };
+            var attributes = {};
+            attributes.id = "VideoPlayer_333";
+            attributes.name = "${application}";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "${swf}.swf", "flashContent3", 
+                //"1280", "720", 
+                "1280", "720",
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent3", "display:block;text-align:left;");
+                    </script>
+                    <!--
+                     <div id="flashContent3" style="width:640px;height:350px;">
+            <p>
+                To view this page ensure that Adobe Flash Player version 
+                ${version_major}.${version_minor}.${version_revision} or greater is installed. 
+            </p>
+            <script type="text/javascript"> 
+                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+            </script> 
+        </div>
+        -->
+                </div>
+           
+        </div>
+        </div> 
+       
+        <!--
+http://ds-vn.serving-sys.com/BurstingRes/Site-68789/Type-16/5976f1e7-5d21-4f06-bb35-c726781ee0cf.mp4
+
+http://cdn2.mecloud.vn/clip/2015/5/14/15/56/b99c8f731a0ae5cbd15551689a6305e3_360.mp4?e=1434030590&t=efd51bdc7f0c781993a82b7dc2fe52a1
+
+
+    -->
+
+       
+
+        <noscript>
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="${width}" height="${height}" id="${application}">
+                <param name="movie" value="${swf}.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="${bgcolor}" />
+                <param name="allowScriptAccess" value="sameDomain" />
+                <param name="allowFullScreen" value="true" />
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="${swf}.swf" width="${width}" height="${height}">
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="${bgcolor}" />
+                    <param name="allowScriptAccess" value="sameDomain" />
+                    <param name="allowFullScreen" value="true" />
+                <!--<![endif]-->
+                <!--[if gte IE 6]>-->
+                    <p> 
+                        Either scripts and active content are not permitted to run or Adobe Flash Player version
+                        ${version_major}.${version_minor}.${version_revision} or greater is not installed.
+                    </p>
+                <!--<![endif]-->
+                    <a href="http://www.adobe.com/go/getflashplayer">
+                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" />
+                    </a>
+                <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+        </noscript>   
+        <!--
+        <object type="application/x-shockwave-flash" id="VijjlkjlkjdeoPlayer_111" name="Videui]yuioPlayer" align="middle" data="Player.swf" width="560" height="315"><param name="quality" value="high"><param name="bgcolor" value="#ffffff"><param name="allowscriptaccess" value="sameDomain"><param name="allowfullscreen" value="true"><param name="flashvars" value="session=111"></object>  
+    -->
+   </body>
+</html>
