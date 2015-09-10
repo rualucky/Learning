@@ -21,7 +21,7 @@ package vn.meme.cloud.player.comp
 		
 		override public function initSize(ev:Event = null):void{
 			if (visible){
-				if (VideoPlayerAdsManager) VideoPlayerAdsManager.getInstance().updateSize(player.stage.stageWidth,player.stage.stageHeight);
+			//	if (VideoPlayerAdsManager) VideoPlayerAdsManager.getInstance().updateSize(player.stage.stageWidth,player.stage.stageHeight);
 				if (VideoPlayerAdsManager2) VideoPlayerAdsManager2.getInstance().updateSize(player.stage.stageWidth,player.stage.stageHeight);
 			}
 				

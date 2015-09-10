@@ -42,6 +42,7 @@ package vn.meme.cloud.player.common
 	import vn.meme.cloud.player.btn.BigPlay;
 	import vn.meme.cloud.player.btn.SkipVAST;
 	import vn.meme.cloud.player.comp.VideoStage;
+	import vn.meme.cloud.player.comp.sub.ads.AdsErrorCodesContent;
 	import vn.meme.cloud.player.comp.sub.ads.AdsMoreInformation;
 	import vn.meme.cloud.player.comp.sub.ads.AdsTimeTitle;
 	import vn.meme.cloud.player.config.ads2.AdInfo2;
@@ -97,7 +98,7 @@ package vn.meme.cloud.player.common
 		private var ka : int;
 		
 		private var errorId : String = "";
-		
+		private var vp : VideoPlayer = VideoPlayer.getInstance();
 		public function VideoPlayerAdsManager2()
 		{			
 			adsCount = 0;
@@ -216,6 +217,7 @@ package vn.meme.cloud.player.common
 					});
 				adsManager.addEventListener(AdEvent.IMPRESSION,
 					function(ev:AdEvent):void{
+						
 						var adInfo : BasicAdInfo2 = (fallbackPos == 0) ? currentAd.adtag[0] : currentAd.adtag[fallbackPos],
 						player : VideoPlayer = VideoPlayer.getInstance(),
 						isVAST : Boolean = (adInfo.adType.match('VAST') || adInfo.adType.match('vast')),
@@ -248,7 +250,9 @@ package vn.meme.cloud.player.common
 							midAdsInfoSuccess.push(currentAd.adtag[fallbackPos].adtagId);
 							currentAd.lastMidAdsPlayed = (currentAd.adtag[fallbackPos].adtagId);
 							var count : uint = setInterval(function():void{
-								currentAd.timeAllowDisplayNextAd++;
+								if(vp.videoStage.playing){
+									currentAd.timeAllowDisplayNextAd++;
+								}
 								if(currentAd.timeAllowDisplayNextAd >= 31){
 									currentAd.timeAllowDisplayNextAd = 31;
 									clearInterval(count);
@@ -260,11 +264,7 @@ package vn.meme.cloud.player.common
 						
 						CommonUtils.log("Ad impress " + fallbackPos);
 						CommonUtils.log('AD ID: ' + adInfo.adtagId);
-					/*	CommonUtils.log(adsSuccess.length);
-						CommonUtils.log(adsInfoSuccess);
-						CommonUtils.log(adsError.length);
-						CommonUtils.log(adsInfoError);*/
-						
+
 						player.pingUtils.ping("ai",0,{
 							adtag : fallbackPos == 0 ? currentAd.adtag[0].adtagId : currentAd.adtag[fallbackPos].adtagId,
 							pos : currentAd.position 
@@ -282,15 +282,6 @@ package vn.meme.cloud.player.common
 								adsMoreInformation.mouseEnabled = false;
 								}
 						} 
-						
-						/*if (isLinear && !isVAST){
-							if (!isSkippAbleVideo){
-								skipBtn = new SkipVAST();
-								player.ads.addChild(skipBtn);
-								skipBtn.x = player.videoStage.width - 135;
-								skipBtn.y = (player.videoStage.width * 9 / 16) - 50 ;
-							}
-						}*/
 						
 					});
 				
@@ -350,6 +341,8 @@ package vn.meme.cloud.player.common
 		
 		private function adsLoadErrorHandler(event:AdErrorEvent):void{
 			CommonUtils.log('AD_ERROR ' + currentAd.adtag[fallbackPos].adtagId);
+			AdsErrorCodesContent.getInstance().getAdErrorContent(event.error.errorCode);
+			CommonUtils.log('Error Message: ' + event.error.errorMessage);
 			adsCount++;
 			if (adsCount == currentAd.adtag.length + 1){
 				ka = 0;
@@ -402,7 +395,7 @@ package vn.meme.cloud.player.common
 			}*/
 			adsRepeat++;
 //			CommonUtils.log(adsRepeat);
-			//CommonUtils.log(adsRepeat);
+			CommonUtils.log(adsRepeat);
 					
 		/*	if (!adsError.length){
 				adsError.push(currentAd.adtag[fallbackPos].adtagId);
@@ -430,17 +423,28 @@ package vn.meme.cloud.player.common
 			CommonUtils.log(adsInfoError);
 			*/
 			// MID AD
+			/*
 			if (currentAd.position == PositionedAdInfo2.MID){
 				currentAd.timeAllowDisplayNextAd = 31;
 				currentAd.midAdPosition++;
 				if (currentAd.delay + currentAd.interval * currentAd.midAdPosition >= (vp.videoStage.getLength()/1000)){
 					currentAd.midAdPosition = 0;
 				}
+			}*/
+			if (currentAd.position == PositionedAdInfo2.MID){
+				if (currentAd.timeAllowDisplayNextAd == 31) currentAd.timeAllowDisplayNextAd = 0;
+				var count : uint = setInterval(function():void{
+					currentAd.timeAllowDisplayNextAd++;
+					if(currentAd.timeAllowDisplayNextAd >= 31){
+						currentAd.timeAllowDisplayNextAd = 31;
+						clearInterval(count);
+					}
+				},1000);
 			}
-			currentAd.timeAllowDisplayNextAd = 31;
+			//currentAd.timeAllowDisplayNextAd = 0;
 			
 			//adsRetry++;
-			
+			if (currentAd.position != PositionedAdInfo2.MID){
 			if (currentAd && currentAd.adtag.length && fallbackPos < currentAd.adtag.length-1){
 				if(currentAd.selectRule != PositionedAdInfo2.SELECT_RULE_RANDOM){
 					fallbackPos++;					
@@ -452,19 +456,25 @@ package vn.meme.cloud.player.common
 				}
 				return;
 			}
-			
+			}
 			if (fallbackPos >= currentAd.adtag.length) fallbackPos = 0;
 			
 			index = fallbackPos;
 			
 			loading = false;
 			
+			/*if (currentAd.position == PositionedAdInfo2.MID){
+				VideoPlayer.getInstance().dispatchEvent(new VideoPlayerEvent(AdErrorEvent.AD_ERROR,event));
+			}*/
 			if(VideoPlayer.getInstance().dispatchEvent(new VideoPlayerEvent(AdErrorEvent.AD_ERROR,event))){
 				if (currentAd.position == PositionedAdInfo2.PRE || currentAd.position == PositionedAdInfo2.POST){
 						/*if (test2.length == currentAd.adtag.length && adsRepeat == 3){
 						vp.videoStage.play();
 						OnPlay.getInstance().updateView(vp);
 					}*/
+				} else {
+					//this.skip();
+				//	vp.videoStage.resume();
 				}
 				 
 			}
@@ -541,8 +551,10 @@ package vn.meme.cloud.player.common
 				adsManager.adsContainer.width = w;
 				adsManager.adsContainer.height = adsH;
 				if (isVAST){
-					skipBtn.x = player.width - 35;
-					skipBtn.y = (player.width * 9 / 16) - 122 ;
+					/*skipBtn.x = player.width - 35;
+					skipBtn.y = (player.width * 9 / 16) - 122 ;*/
+					skipBtn.x = player.width - 140;
+					skipBtn.y = player.videoStage.height * 0.9;
 				} 
 			}
 		}
@@ -553,16 +565,19 @@ package vn.meme.cloud.player.common
 				adsManager.destroy();
 				adsManager = null;
 			}
+			reset();
 		}
 		
 		public function reset():void{
+			var vp : VideoPlayer = VideoPlayer.getInstance();
+			vp.playInfo.ad2.mid[0].freeSeekTime = 0;
 			adsCountPlay = 0;
-			adsDisplayed = 0;
 			adsError.length = 0;
 			adsInfoError.length = 0;
 			adsSuccess.length = 0;
 			adsInfoSuccess.length = 0;
 			adsRepeat = 0;
+			
 		}
 		
 		public function removeDuplicateItem(adsVector : Vector.<BasicAdInfo2>):void{

@@ -28,6 +28,8 @@ package vn.meme.cloud.player.btn
 		
 		private var vp : VideoPlayer = VideoPlayer.getInstance();
 		
+		public var frame : Sprite = new Sprite();
+		
 		public function PauseAd()
 		{
 			tf = new TextField();	
@@ -36,9 +38,11 @@ package vn.meme.cloud.player.btn
 			tf.defaultTextFormat = textFormat;
 			tf.wordWrap = true;		
 			tf.mouseEnabled = false;
-			tf.width = 150;
+			tf.width = 128;
+			tf.height = 22;
 			tf.text = "Bạn đang xem quảng cáo";
 			addChild(tf);
+			addChild(frame);
 			
 			var g : Graphics = this.graphics;
 			g.clear();
@@ -54,5 +58,6 @@ package vn.meme.cloud.player.btn
 			g.drawRect(0, 0, width, height);
 			g.endFill();
 		}
+		
 	}
 }

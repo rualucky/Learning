@@ -66,6 +66,7 @@ package vn.meme.cloud.player.config
 			
 			if (data.logoMain)
 				logoMain = data.logoMain;
+			
 		}
 	}
 }

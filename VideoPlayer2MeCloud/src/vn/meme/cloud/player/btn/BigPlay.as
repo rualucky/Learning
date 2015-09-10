@@ -8,6 +8,7 @@ package vn.meme.cloud.player.btn
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.Graphics;
+	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -20,7 +21,9 @@ package vn.meme.cloud.player.btn
 	import flash.text.GridFitType;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
+	import flash.text.engine.GraphicElement;
 	import flash.utils.Timer;
+	import flash.utils.setInterval;
 	
 	import vn.meme.cloud.player.common.CommonUtils;
 	import vn.meme.cloud.player.comp.VideoStage;
@@ -45,7 +48,6 @@ package vn.meme.cloud.player.btn
 //			,embedAsCFF     = 'false'
 //		)]
 //		private const _bold:Class; 
-		
 		private var btn : Sprite;
 		private var bm : Bitmap;
 		private var textBm : Bitmap;
@@ -63,6 +65,7 @@ package vn.meme.cloud.player.btn
 		
 		public function BigPlay()
 		{
+			
 			super(VideoPlayerEvent.BIGPLAY); 
 			bm = this.invertBitmapColor((new asset()) as Bitmap);			
 			addChild(btn = new Sprite());
@@ -80,7 +83,7 @@ package vn.meme.cloud.player.btn
 			tf.thickness = 100;
 			addChild(tf);
 		}
-				 
+		
 		public function init(isLarge:Boolean = true):void{
 			var vp : VideoPlayer = VideoPlayer.getInstance();
 			if (vp.playInfo) tf.text = vp.playInfo.title; 

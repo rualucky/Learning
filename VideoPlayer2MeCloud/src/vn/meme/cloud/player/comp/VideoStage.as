@@ -33,8 +33,10 @@ package vn.meme.cloud.player.comp
 	import vn.meme.cloud.player.common.PingUtils;
 	import vn.meme.cloud.player.common.VASTAdsManager;
 	import vn.meme.cloud.player.common.VideoPlayerAdsManager;
+	import vn.meme.cloud.player.common.VideoPlayerAdsManager2;
 	import vn.meme.cloud.player.comp.sub.TimeDisplay;
 	import vn.meme.cloud.player.comp.sub.TimeLine;
+	import vn.meme.cloud.player.config.ads2.PositionedAdInfo2;
 	import vn.meme.cloud.player.event.VideoPlayerEvent;
 	import vn.meme.cloud.player.listener.OnPause;
 	
@@ -81,6 +83,7 @@ package vn.meme.cloud.player.comp
 		public var _isBuffering : Boolean = false;
 		private var isBufferTimeLine : uint = 0;
 		private var pcn : Number;
+		private var ab : Number = 0;
 		/**
 		* contrucstor
 		*/
@@ -259,8 +262,11 @@ package vn.meme.cloud.player.comp
 		}
 		
 		private function freeSeek(offset:Number = 0):void{
+			var vp : VideoPlayer = VideoPlayer.getInstance();
+			var midAdIndex : Number = 0;
+			vp.playInfo.ad2.mid[midAdIndex].freeSeekTime = offset;
 			end = false;
-			isPlaying = true;
+		//	isPlaying = true;
 			if (offset == 0){
 				nextStartPosition = 0;
 				startPosition = 0;
@@ -271,7 +277,9 @@ package vn.meme.cloud.player.comp
 			} else {
 				nextStartPosition = offset;
 				playTime = 0;
-				netstream.play(url + "&start=" +offset);
+				netstream.play(url + "&start=" + offset);
+				if (!isPlaying) netstream.pause();
+				//netstream.seek(offset);
 			}
 			pingSV = true;
 		}
@@ -329,16 +337,17 @@ package vn.meme.cloud.player.comp
 			}
 			if (url && !checkHLS){
 				CommonUtils.log("Play video " + url);
-			
 				netstream.play(url);
 				playTime = 0;
 				end = false;
 				isPlaying = true;
 				pingSV = true;
+				
 			}
 		}
 		
 		public function seek(offset:Number = 0):void{
+			
 			if (netstream){
 				player.pingUtils.ping("ev",playTime);
 				// if loaded
@@ -346,11 +355,13 @@ package vn.meme.cloud.player.comp
 					(videoLength - startPosition) * (netstream.bytesLoaded / netstream.bytesTotal) >= offset * 1000){
 					netstream.seek(offset - startPosition);
 					pingSV = true;
-//					CommonUtils.log("Seek " +offset + " " + startPosition);
+					CommonUtils.log("Seek " +offset + " " + startPosition);
 				} 
 				// if not loaded, free seek
 				else {
+					CommonUtils.log('free seek');
 					freeSeek(offset);
+					
 				}
 				playTime = offset * 1000;
 			}
@@ -413,7 +424,9 @@ package vn.meme.cloud.player.comp
 			TimeDisplay.getInstance().setPlayTime(playTime + startPosition * 1000);
 			
 			if(this.isBuffering){
-				VideoPlayer.getInstance().buffering.visible=true;
+					var vp:VideoPlayer = VideoPlayer.getInstance();
+					vp.buffering.updateBufferCirclePosition(vp.videoStage.width/5.5,(315-30)/2);
+					VideoPlayer.getInstance().buffering.visible=true;
 			} else {
 				VideoPlayer.getInstance().buffering.visible=false;
 			}
@@ -429,7 +442,12 @@ package vn.meme.cloud.player.comp
 		}
 		
 		private function statusChanged(stats:NetStatusEvent):void {
+			var vp : VideoPlayer = VideoPlayer.getInstance();
+			
 			CommonUtils.log(stats.info.code);
+			if (stats.info.code == 'NetStream.Play.StreamNotFound'){
+				vp.wait.show('Video này đã bị xóa');
+			}
 			if (stats.info.code == 'NetStream.Play.Stop') {
 				clearInterval(isBufferTimeLine);
 				isBufferTimeLine = 0;

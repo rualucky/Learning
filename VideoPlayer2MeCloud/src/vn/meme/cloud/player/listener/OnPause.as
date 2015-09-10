@@ -16,7 +16,6 @@ package vn.meme.cloud.player.listener
 	public class OnPause implements VideoPlayerEventListener
 	{
 		private static var instance:OnPause ;
-		private var frame : Sprite = new Sprite();
 		public static function getInstance():OnPause{
 			return instance;
 		}
@@ -37,8 +36,9 @@ package vn.meme.cloud.player.listener
 			ct.playBtn.visible = true;
 			if (!vp.wait.visible){
 				if(vp.playInfo.ad2.pausead && vp.playInfo.ad2.pausead.adtag.length){
+					var frame:Sprite = vp.wait.btnPauseAd.frame;
 					var pauseAdIndex : Number = vp.playInfo.ad2.pausead.pauseAdIndex;
-					
+					vp.wait.btnPauseAd.drawPauseAdFrame(vp.stage.stageWidth, vp.stage.stageHeight - 30);
 					vp.wait.btnPauseAd.tf.x = vp.stage.stageWidth - 134;
 					vp.wait.btnPauseAd.tf.y = vp.stage.stageHeight - 50;
 					var g : Graphics = frame.graphics;
@@ -46,12 +46,12 @@ package vn.meme.cloud.player.listener
 					g.beginFill(0x000000,0.4);
 					g.drawRoundRect(vp.wait.btnPauseAd.tf.x-1,vp.wait.btnPauseAd.tf.y+2,130,15,9);
 					g.endFill();
-					vp.wait.btnPauseAd.addChild(frame);
 					var frameIndex : Number = vp.wait.btnPauseAd.getChildIndex(frame);
 					var tfIndex : Number = vp.wait.btnPauseAd.getChildIndex(vp.wait.btnPauseAd.tf);
-					vp.wait.btnPauseAd.setChildIndex(frame, tfIndex);
-					vp.wait.btnPauseAd.setChildIndex(vp.wait.btnPauseAd.tf, frameIndex);
-					
+					if (frameIndex > tfIndex){
+						vp.wait.btnPauseAd.setChildIndex(frame, tfIndex);
+						vp.wait.btnPauseAd.setChildIndex(vp.wait.btnPauseAd.tf, frameIndex);
+					}
 					if (vp.playInfo.ad2.pausead.displayRule == PositionedAdInfo2.DISPLAY_RULE_NOT_DUPLICATE){
 						if (vp.playInfo.ad2.pausead.selectRule != PositionedAdInfo2.SELECT_RULE_RANDOM){
 							vp.wait.setPauseAd(vp.playInfo.ad2.pausead.adtag[pauseAdIndex]);

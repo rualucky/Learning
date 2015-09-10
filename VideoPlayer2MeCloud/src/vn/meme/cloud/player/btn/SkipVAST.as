@@ -15,6 +15,7 @@ package vn.meme.cloud.player.btn
 	import flashx.textLayout.formats.TextAlign;
 	
 	import vn.meme.cloud.player.common.CommonUtils;
+	import vn.meme.cloud.player.common.VideoPlayerAdsManager2;
 	import vn.meme.cloud.player.event.VideoPlayerEvent;
 
 	public class SkipVAST extends VideoPlayerButton
@@ -26,17 +27,22 @@ package vn.meme.cloud.player.btn
 		private var textFormat : TextFormat;		
 		private var tf : TextField;		
 		private var bm : Bitmap;
-		
+		private var self;
 		private static const SKIP_TIME : int = 6;
 		private var skipCount : int;
 		private var skipTimer : Timer = new Timer(1000, SKIP_TIME);
 		
 		private var vp : VideoPlayer = VideoPlayer.getInstance();
 		
+		private static const instance : SkipVAST = new SkipVAST;
+		public static function getInstance():SkipVAST{
+			return instance;
+		}
+		
 		public function SkipVAST()
 		{
 			super(VideoPlayerEvent.SKIP_VAST);
-
+			self = this;
 			bm = this.invertBitmapColor((new asset()) as Bitmap);			
 			bm.width = 15;
 			bm.height = 20;
@@ -68,8 +74,14 @@ package vn.meme.cloud.player.btn
 			
 			alpha = 0.6;	
 			
-			this.x = vp.width - 140;
-			this.y = vp.videoStage.height * 0.9;
+			if (vp.videoStage.width <= 480)
+				this.x = vp.videoStage.width - 130;
+			if (vp.videoStage.width > 480 && vp.videoStage.width <= 640)
+				this.x = vp.videoStage.width - 85;
+			if (vp.videoStage.width > 640)
+				this.x = vp.videoStage.width - 130;
+			
+			this.y = vp.videoStage.height * 0.86;
 			
 			skipTimer.addEventListener(TimerEvent.TIMER, function():void{
 				skipCount = SKIP_TIME - skipTimer.currentCount;	
@@ -88,7 +100,16 @@ package vn.meme.cloud.player.btn
 			skipTimer.start();
 		}
 		
-		
+		public function changePosition(player:VideoPlayer):void{
+			if (player.videoStage.width <= 480)
+				VideoPlayerAdsManager2.getInstance().skipBtn.x = player.videoStage.width - 130;
+			if (player.videoStage.width > 480 && player.videoStage.width <= 640)
+				VideoPlayerAdsManager2.getInstance().skipBtn.x = player.videoStage.width - 85;
+			if (player.videoStage.width > 640)
+				VideoPlayerAdsManager2.getInstance().skipBtn.x = player.videoStage.width - 130;
+			VideoPlayerAdsManager2.getInstance().skipBtn.y = player.videoStage.height * 0.86;
+			
+		}
 		override protected function onMouseOver(ev:MouseEvent = null):void{
 			this.alpha = 1;
 		}

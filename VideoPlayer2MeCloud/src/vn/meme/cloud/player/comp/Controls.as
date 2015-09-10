@@ -48,9 +48,14 @@ package vn.meme.cloud.player.comp
 		
 		private var volumeX : SharedObject = SharedObject.getLocal("volumeX");
 		
+		private static var instance:Controls ;
+		public static function getInstance():Controls{
+			return instance;
+		}
 		
 		public function Controls(player:VideoPlayer)
 		{
+			instance = this;
 			addChild(playBtn = new Play());
 			addChild(pauseBtn = new Pause());
 			pauseBtn.visible = false;

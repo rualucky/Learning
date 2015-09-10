@@ -3,11 +3,13 @@ package vn.meme.cloud.player.listener
 	import flash.display.Stage;
 	import flash.display.StageDisplayState;
 	
+	import vn.meme.cloud.player.btn.SkipVAST;
 	import vn.meme.cloud.player.common.CommonUtils;
 	import vn.meme.cloud.player.common.VideoPlayerAdsManager;
 	import vn.meme.cloud.player.comp.Controls;
 	import vn.meme.cloud.player.comp.VideoPlayerComponent;
 	import vn.meme.cloud.player.comp.VideoStage;
+	import vn.meme.cloud.player.comp.sub.ads.AdsMoreInformation;
 	import vn.meme.cloud.player.event.VideoPlayerEvent;
 	import vn.meme.cloud.player.event.VideoPlayerEventListener;
 	
@@ -25,6 +27,7 @@ package vn.meme.cloud.player.listener
 		
 		public function excuteLogic(vp : VideoPlayer, vs : VideoStage, ev:VideoPlayerEvent):Boolean
 		{
+
 			with (vp.graphics){
 				beginFill(0x000000);
 				drawRect(0,0,vp.stage.stageWidth,vp.stage.stageHeight);

@@ -2,6 +2,8 @@ package vn.meme.cloud.player.listener.ads
 {
 	import com.google.ads.ima.api.AdEvent;
 	
+	import flash.utils.setInterval;
+	
 	import vn.meme.cloud.player.common.CommonUtils;
 	import vn.meme.cloud.player.common.VideoPlayerAdsManager;
 	import vn.meme.cloud.player.common.VideoPlayerAdsManager2;
@@ -140,7 +142,7 @@ package vn.meme.cloud.player.listener.ads
 						}
 						if (ads2.currentAd.position == PositionedAdInfo2.PRE){
 							VideoPlayerAdsManager2.getInstance().adsDisplayed = 0;
-							VideoPlayerAdsManager2.getInstance().skip();
+							VideoPlayerAdsManager2.getInstance().adsRetry = 0;
 						//	CommonUtils.log('333333333333333333333333333333333333333');
 							vs.play();
 							return true;

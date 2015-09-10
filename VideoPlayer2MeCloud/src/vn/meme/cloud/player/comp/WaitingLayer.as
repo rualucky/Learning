@@ -3,6 +3,7 @@ package vn.meme.cloud.player.comp
 	import flash.display.Bitmap;
 	import flash.display.Graphics;
 	import flash.display.Loader;
+	import flash.display.SpreadMethod;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -39,6 +40,8 @@ package vn.meme.cloud.player.comp
 		private var rawWidth : Number;
 		private var rawHeight : Number;
 		private var rawRate : Number;
+		
+		private var frame : Sprite = new Sprite();
 		
 		public var isPauseAd : Boolean = false;
 		
@@ -192,6 +195,26 @@ package vn.meme.cloud.player.comp
 			
 			btnPauseAd.setChildIndex(loader, 0);
 			btnPauseAd.setChildIndex(btnPauseAd.tf, 999);
+		}
+		
+		public function changePauseAdSize(player:VideoPlayer):void{
+			target_mc.height = player.stage.stageHeight - 30;
+			target_mc.width = target_mc.height * rawRate;
+			
+			if (target_mc.width > rawWidth || target_mc.height > rawHeight){
+				target_mc.width = rawWidth;
+				target_mc.height = rawHeight;
+			}
+			loader.x = (player.stage.stageWidth - target_mc.width) / 2;
+			loader.y = (player.stage.stageHeight - 30 - target_mc.height) / 2;
+			player.wait.btnPauseAd.tf.x = player.stage.stageWidth - 134;
+			player.wait.btnPauseAd.tf.y = player.stage.stageHeight - 50;
+			
+			var g : Graphics = player.wait.btnPauseAd.frame.graphics;
+			g.clear();
+			g.beginFill(0x000000,0.4);
+			g.drawRoundRect(player.wait.btnPauseAd.tf.x-1,player.wait.btnPauseAd.tf.y+2,130,15,9);
+			g.endFill();
 		}
 	}
 }

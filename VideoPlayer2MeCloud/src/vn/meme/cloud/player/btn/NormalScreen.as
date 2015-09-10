@@ -11,12 +11,17 @@ package vn.meme.cloud.player.btn
 	{
 		[Embed(source="asset/btn-fullscreen-exit.png")]
 		public static var asset:Class;
-		
+
+		private static var instance:NormalScreen ;
+		public static function getInstance():NormalScreen{
+			return instance;
+		}
 		
 		public function NormalScreen()
 		{
 			super(VideoPlayerEvent.NORMALSCREEN);
 			addChild(this.invertBitmapColor((new asset()) as Bitmap));
+			instance = this;
 		}
 		
 		protected override function onMouseOver(ev:MouseEvent=null):void{

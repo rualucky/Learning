@@ -12,11 +12,16 @@ package vn.meme.cloud.player.btn
 	{
 		[Embed(source="asset/btn-fullscreen.png")]
 		public static var asset:Class;
+		private static var instance:Fullscreen ;
+		public static function getInstance():Fullscreen{
+			return instance;
+		}
 		
 		public function Fullscreen()
 		{
 			super(VideoPlayerEvent.FULLSCREEN);
 			addChild(this.invertBitmapColor((new asset()) as Bitmap));
+			instance = this;
 		}
 		
 		protected override function onMouseOver(ev:MouseEvent=null):void{
@@ -31,5 +36,6 @@ package vn.meme.cloud.player.btn
 			super.onMouseOut(ev);
 			PlayerTooltip.getInstance().visible = false;
 		}
+		
 	}
 }

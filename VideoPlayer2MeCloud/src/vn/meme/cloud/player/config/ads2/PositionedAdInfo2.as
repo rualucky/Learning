@@ -31,6 +31,9 @@ package vn.meme.cloud.player.config.ads2
 		public var lastMidAdsPlayed : Number;
 		public var count : Number = 0;
 		public var midAdPosition : Number;
+		public var playFirstMidAd : Number = 0;
+		public var timeRepeatMidAd : Number = 0;
+		public var freeSeekTime : Number;
 		
 		public function PositionedAdInfo2(data:*, pos:String)
 		{
@@ -71,7 +74,7 @@ package vn.meme.cloud.player.config.ads2
 			timeAllowDisplayNextAd = 31;
 			pauseAdIndex = 0;
 			midAdPosition = 0;
-			
+			freeSeekTime = 0;
 		}
 			
 	}

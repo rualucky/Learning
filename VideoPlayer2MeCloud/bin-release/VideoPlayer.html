@@ -73,15 +73,15 @@
                                	//"autoplay":true,
                                 "vid":"ZEh89uu6Bn",
                                 "analyticsUrl":"http://analytics.cloud.meme.vn:8888",
-                               
-                                "title": "Bóng đá ... asdlfjaslfkjsaf asdfjasfjasdf sadf asdf asdfsad fasd fasd fasd fasd fasdf asdf asdf asdf asdf asd fasd fasd fasd fasd fasd fas dfa sdf sdfs dfasd fas f",
+                               	"width":560,
+                               	"height":315,
+                                "title": "Bóng đá ...",
                                 "thumbnail": "http://imgs.meme.vn/video/clip/2015/01/30/16/26/1b37fd6036b50ae4c0ea214af3e067d3MEME1422610427.jpg",
                                 "video": [
                                 
                                     {
                                         "quality": "360p",
-                                       // "url":"http://stream.cloud.meme.vn/clip/2015/7/15/9/18/6057f2d173025d49ddaa4753c1023bd3_480.mp4?e=1440061495&t=8396bcbee61b469aec3c45854f4cab17"
-                                       "url":"http://localhost/video/video1.mp4"
+                                        "url":"http://stream1.mecloud.vn/clip/2015/9/10/9/59/4c44bc6a0e71a45d6722cf25d5747eeb_360.mp4?e=1441868678&s=Bka4M9eR5w0b5Vu4pCOR5g"
                                     }
                                     ,
                                     {
@@ -102,33 +102,66 @@
                                 
                                    "ad": {
        
-       "pre":{
-"id":433,
-"adtag":[
-{
-//"adtagUrl":"http://googleads.g.doubleclick.net/pagead/ads?ad_type\u003dvideo_image_flash\u0026client\u003dca-video-pub-7266710804606728\u0026description_url\u003dhttp%3A%2F%2Fdienchan.freevnn.com%2F%3Fp%3D469\u0026videoad_start_delay\u003d0\u0026hl\u003dvi\u0026max_ad_duration\u003d15000",
-"adtagUrl":"http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
-"skippable":false,
-"skipTime":0,
-"adType":"VAST",
-"adtagId":236
-},
-
-],
-"displayRule":"FULL_COUNT",
-"selectRule":"RANDOM",
-"maxDisplay":3
+        "pre": {
+            "adtag": [
+            	{
+                    "adtagUrl" : "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    //"adtagUrl" : "https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]",
+                    //"adtagUrl" : "http://player.tuyenbui.com/vast/vast.xml",
+                    //"adtagUrl" :"https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]",
+                    "skippable": false,
+                    "skipTime": 10,
+                    "adType": "VAST",
+                    "adtagId": 10
+                }/*, 
+                {
+                    "adtagUrl" : "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    //"adtagUrl":"https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]",
+                    "skippable": false,
+                    "skipTime": 0,
+                    "adType": "VAST",
+                    "adtagId": 20
+                },
+                {
+                    "adtagUrl": "http://1delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    //"adtagUrl":"http://player.tuyenbui.com/vast/vast.xml",
+                    "skippable": false,
+                    "skipTime": 0,
+                    "adType": "VAST",
+                    "adtagId": 30
+                },
+                {
+                    "adtagUrl": "http://1delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    //"adtagUrl":"http://googleads.g.doubleclick.net/pagead/ads?ad_type=flash&client=ca-video-pub-7266710804606728&description_url=&hl=vi&max_ad_duration=40000&overlay=0",
+                    "skippable": false,
+                    "skipTime": 0,
+                    "adType": "VAST",
+                    "adtagId": 40
+                },
+                {
+                    "adtagUrl": "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
+                    //"adtagUrl":"http://googleads.g.doubleclick.net/pagead/ads?ad_type=flash&client=ca-video-pub-7266710804606728&description_url=&hl=vi&max_ad_duration=40000&overlay=0",
+                    "skippable": false,
+                    "skipTime": 0,
+                    "adType": "VAST",
+                    "adtagId": 50
+                }*/
+                ],
+            "displayRule": "NOT_DUPLICATE",
+            "selectRule": "LINEAR",
+            "maxDisplay": 1
         },
         "mid": [{
                 "adtag": [{
                       //"adtagUrl":"https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]",
-                      "adtagUrl":"http://demo.tremorvideo.com/proddev/vast/vast_wrapper_nonlinear_1.xml",
+                      //"adtagUrl":"http://demo.tremorvideo.com/proddev/vast/vast_wrapper_nonlinear_1.xml",
+                        "adtagUrl" : "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1430973880/wid_1430973174/type_inline/cb_[timestamp]",
                         "skippable": false,
                         "skipTime": 0,
-                        "adType": "IMA",
+                        "adType": "VAST",
                         "adtagId": 2
                     }
-                  /* , 
+                   ,/* 
                     {
                         //"adtagUrl": "http://cdn-01.yumenetworks.com/ym/72K6cH27X672/3560/dPyQHeey/MemeVN_VPAID_2193gDhFcRPs.xml",
                         "adtagUrl":"http://demo.tremorvideo.com/proddev/vast/vast_wrapper_nonlinear_1.xml",
